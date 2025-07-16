@@ -1,4 +1,0 @@
-$(function()
-{
-    loadList($('#type').val());
-});
