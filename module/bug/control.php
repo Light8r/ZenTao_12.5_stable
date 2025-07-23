@@ -361,9 +361,9 @@ class bug extends control
         $deadline   = '';
         $mailto     = '';
         $keywords   = '';
-        $severity   = 3;
+        $severity   = isset($casePri) ? $casePri : 3;
         $type       = 'codeerror';
-        $pri = isset($casePri) ? $casePri : 3;
+        $pri        = isset($casePri) ? $casePri : 3;
         $color      = '';
 
         /* Parse the extras. extract fix php7.2. */
