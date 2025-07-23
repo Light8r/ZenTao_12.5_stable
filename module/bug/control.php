@@ -248,6 +248,10 @@ class bug extends control
      */
     public function create($productID, $branch = '', $extras = '')
     {
+        $extras = str_replace(array(',', ' '), array('&', ''), $extras);
+        parse_str($extras, $output);
+        extract($output);
+
         if(empty($this->products)) $this->locate($this->createLink('product', 'create'));
 
         /* Whether there is a object to transfer bug, for example feedback. */
@@ -367,9 +371,7 @@ class bug extends control
         $color      = '';
 
         /* Parse the extras. extract fix php7.2. */
-        $extras = str_replace(array(',', ' '), array('&', ''), $extras);
-        parse_str($extras, $output);
-        extract($output);
+
 
         if($runID and $resultID) extract($this->bug->getBugInfoFromResult($resultID, 0, 0, isset($stepIdList) ? $stepIdList : ''));// If set runID and resultID, get the result info by resultID as template.
         if(!$runID and $caseID)  extract($this->bug->getBugInfoFromResult($resultID, $caseID, $version, isset($stepIdList) ? $stepIdList : ''));// If not set runID but set caseID, get the result info by resultID and case info.
