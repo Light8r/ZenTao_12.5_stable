@@ -30,7 +30,7 @@ function createBug(obj)
 
     var onlybody    = config.onlybody;
     config.onlybody = 'no';
-    window.open(createLink('bug', 'create', params + ',stepIdList=' + stepIdList), '_blank');
+    window.open(createLink('bug', 'create', params + ',stepIdList=' + stepIdList,+',casePri'=casePri, '_blank');
     config.onlybody = onlybody;
 }
 
@@ -72,3 +72,4 @@ $sessionString .= session_name() . '=' . session_id();
 var sessionString = '<?php echo $sessionString;?>';
 </script>
 <?php include '../../common/view/footer.lite.html.php';?>
+var casePri = '<?php echo $casePril ?>'
